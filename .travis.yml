@@ -1,0 +1,14 @@
+sudo: false
+language: erlang
+otp_release:
+  - 20.0
+  - 19.3
+  - 18.3
+
+install:
+  - set -e
+  - wget https://s3.amazonaws.com/rebar3/rebar3
+  - chmod +x ./rebar3
+
+script: ./rebar3 do update,upgrade,compile
+# after_success: ./rebar3 eunit
